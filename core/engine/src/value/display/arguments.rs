@@ -1,3 +1,4 @@
+use crate::value::display::value;
 use crate::{JsObject, JsValue, js_string};
 use std::collections::HashSet;
 use std::fmt::{self, Write};
@@ -70,6 +71,6 @@ struct CompactValue<'a> {
 
 impl fmt::Display for CompactValue<'_> {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        super::value::log_value_compact(f, self.value, 0, self.print_internals, &mut HashSet::new())
+        value::log_value_compact(f, self.value, 0, self.print_internals, &mut HashSet::new())
     }
 }
